@@ -1,19 +1,20 @@
-# Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
 
-PYTHON_COMPAT=( python2_7 python3_6 )
+PYTHON_COMPAT=( python3+ )
 
 inherit linux-info python-any-r1 scons-utils toolchain-funcs systemd udev
 
-COMMIT="6e5e8a57628095d8d0c8bbb38187afb0f3a42112"
+MY_P="${PN}-v$(ver_cut 1-3)"
 DESCRIPTION="Userspace Xbox 360 Controller driver"
 HOMEPAGE="https://xboxdrv.gitlab.io"
-SRC_URI="https://github.com/chewi/xboxdrv/archive/${COMMIT}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://gitlab.com/xboxdrv/${PN}/-/archive/v$(ver_cut 1-3)/${MY_P}.tar.bz2"
+S="${WORKDIR}/${MY_P}"
+
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="*"
 
 RDEPEND="
 	dev-libs/boost:=
@@ -30,19 +31,20 @@ DEPEND="
 "
 
 BDEPEND="
-	dev-util/glib-utils
 	virtual/pkgconfig
 "
 
-S="${WORKDIR}/${PN}-${COMMIT}"
+PATCHES=(
+	"${FILESDIR}/"xboxdrv-0.8.8-some-boost-fix.patch
+	"${FILESDIR}/"xboxdrv-0.8.8-Update-SConstruct-to-python3.patch
+	"${FILESDIR}/"xboxdrv-0.8.8-Updating-python-code-to-python3.patch
+)
 
 CONFIG_CHECK="~INPUT_EVDEV ~INPUT_JOYDEV ~INPUT_UINPUT ~!JOYSTICK_XPAD"
 
-src_prepare() {
-	default
-
-	# Make it clearer that this is a patched fork.
-	echo -n "${PV%_*}.${PV#*_p}-gentoo" > VERSION || die
+pkg_setup() {
+	linux-info_pkg_setup
+	python-any-r1_pkg_setup
 }
 
 src_compile() {
@@ -71,5 +73,9 @@ src_install() {
 }
 
 pkg_postinst() {
+	udev_reload
+}
+
+pkg_postrm() {
 	udev_reload
 }
