@@ -6,7 +6,7 @@ inherit wxwidgets eutils flag-o-matic
 
 DESCRIPTION="utilities for the SCUMM game engine"
 HOMEPAGE="http://scummvm.sourceforge.net/"
-SRC_URI="https://github.com/scummvm/scummvm-tools/tarball/6b69142373327203645d9ddc2efb01d7e1f05290 -> scummvm-tools-2.7.0-6b69142.tar.gz"
+SRC_URI="https://github.com/scummvm/scummvm-tools/tarball/516246735618120eb9439cb9673a32430c18d604 -> scummvm-tools-2.9.0-5162467.tar.gz"
 
 LICENSE="GPL-2+"
 SLOT="0"
