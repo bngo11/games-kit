@@ -1,30 +1,41 @@
-#!/usr/bin.env python3
-from metatools.version import generic
+#!/usr/bin/env python3
 
-
-def get_release(releases_data):
-	releases = list(filter(lambda x: x["prerelease"] is False and x["draft"] is False, releases_data))
-	return None if not releases else sorted(releases, key=lambda x: generic.parse(x["tag_name"])).pop()
-
+import json
 
 async def generate(hub, **pkginfo):
-	user = pkginfo["name"]
-	repo = "stk-code"
-	releases_data = await hub.pkgtools.fetch.get_page(
-		f"https://api.github.com/repos/{user}/{repo}/releases", is_json=True
-	)
-	latest_release = get_release(releases_data)
+	github_user = pkginfo.get("name")
+	github_repo = "stk-code"
+	json_data = await hub.pkgtools.fetch.get_page(f"https://api.github.com/repos/{github_user}/{github_repo}/releases", is_json=True)
+	version = None
+	url = None
 
-	if latest_release is None:
-		raise hub.pkgtools.ebuild.BreezyError(f"Can't find a suitable release of {name}")
-	version = latest_release["tag_name"]
-	ebuild = hub.pkgtools.ebuild.BreezyBuild(
-		**pkginfo,
-		version=version,
-		artifacts=[
-			hub.pkgtools.ebuild.Artifact(
-				url=f"https://github.com/{user}/{repo}/releases/download/{version}/SuperTuxKart-{version}-src.tar.xz"
-			)
-		],
-	)
-	ebuild.push()
+	for item in json_data:
+		try:
+			if item["prerelease"] or item["draft"]:
+				continue
+
+			version = item["tag_name"]
+			list(map(int, version.split(".")))
+
+			for asset in item['assets']:
+				asset_name = asset["name"]
+
+				if asset_name.endswith("-x86_64.tar.xz"):
+					url = asset["browser_download_url"]
+					break
+
+			if url:
+				break
+
+		except (KeyError, IndexError, ValueError):
+			continue
+
+	if version and url:
+		ebuild = hub.pkgtools.ebuild.BreezyBuild(
+			**pkginfo,
+			version=version,
+			artifacts=[hub.pkgtools.ebuild.Artifact(url=url, final_name=asset_name)]
+		)
+		ebuild.push()
+
+# vim: ts=4 sw=4 noet
