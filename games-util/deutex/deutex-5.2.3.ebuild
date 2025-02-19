@@ -5,7 +5,7 @@ inherit toolchain-funcs eutils
 
 DESCRIPTION="A wad composer for Doom, Heretic, Hexen and Strife"
 HOMEPAGE="http://www.teaser.fr/~amajorel/deutex/"
-SRC_URI="https://github.com/Doom-Utils/deutex/tarball/e83e25268b866bf588ef839a155114208df5833a -> deutex-5.2.2-e83e252.tar.gz"
+SRC_URI="https://github.com/Doom-Utils/deutex/tarball/295dd1ec099a757b4cf905f9a47ffe4cbb7627c7 -> deutex-5.2.3-295dd1e.tar.gz"
 
 LICENSE="GPL-2+ LGPL-2+ HPND"
 SLOT="0"
@@ -15,7 +15,7 @@ IUSE="doc"
 RDEPEND=""
 DEPEND="doc? ( app-text/asciidoc )"
 
-S="${WORKDIR}/Doom-Utils-deutex-e83e252"
+S="${WORKDIR}/Doom-Utils-deutex-295dd1e"
 
 
 src_prepare() {
