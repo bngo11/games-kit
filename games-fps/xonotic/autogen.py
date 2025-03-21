@@ -1,33 +1,34 @@
 #!/usr/bin/env python3
 
 from bs4 import BeautifulSoup
-from datetime import datetime, timedelta
 import re
 
+VERSION = re.compile(r"./Xonotic-(\d+)\.zip")
 
 async def generate(hub, **pkginfo):
-	autobuild_url = "https://beta.xonotic.org/autobuild"
-	src_pattern = re.compile("^\\.\\/(Xonotic-(\\d+)\.zip)$")
+	html_data = await hub.pkgtools.fetch.get_page("https://beta.xonotic.org/autobuild")
+	soup = BeautifulSoup(html_data, "html.parser")
+	links = soup.find_all("a")
+	version = None
 
-	autobuild_soup = BeautifulSoup(
-		await hub.pkgtools.fetch.get_page(autobuild_url, refresh_interval=timedelta(days=30)), "lxml"
-	)
+	for link in links:
+		href = link.get("href")
+		if href and "Xonotic" in href:
+			found = VERSION.search(href)
+			if found:
+				version = int(found.groups()[0])
+				break
 
-	link_matches = (
-		src_pattern.match(link.get("href")) for link in autobuild_soup.find_all("a")
-	)
-	valid_matches = (match.groups() for match in link_matches if match)
+	if version:
+		final_name = f"Xonotic-{version}.zip"
+		url = f"https://beta.xonotic.org/autobuild/{final_name}"
+		ebuild = hub.pkgtools.ebuild.BreezyBuild(
+			**pkginfo,
+			version=version,
+			artifacts=[hub.pkgtools.ebuild.Artifact(url=url, final_name=final_name)],
+		)
 
-	target_filename, target_version = max(
-		valid_matches,
-		key=lambda match: datetime.strptime(match[1], "%Y%m%d"),
-	)
-	src_url = f"{autobuild_url}/{target_filename}"
+		ebuild.push()
 
-	ebuild = hub.pkgtools.ebuild.BreezyBuild(
-		**pkginfo,
-		version=target_version,
-		artifacts=[hub.pkgtools.ebuild.Artifact(url=src_url)],
-	)
-	ebuild.push()
 
+# vim: ts=4 sw=4 noet
