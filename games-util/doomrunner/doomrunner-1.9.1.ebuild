@@ -6,7 +6,7 @@ inherit qmake-utils
 
 DESCRIPTION="Preset-oriented graphical launcher of various ported Doom engines (an alternative to ZDL)"
 HOMEPAGE="https://github.com/Youda008/DoomRunner"
-SRC_URI="https://github.com/Youda008/DoomRunner/tarball/7462b33021250a1507c41fdda7a411f2667171b1 -> DoomRunner-1.9.0-7462b33.tar.gz"
+SRC_URI="https://github.com/Youda008/DoomRunner/tarball/7b1f4a04ad4d339c48a1541dcb7d20ca39cec2f6 -> DoomRunner-1.9.1-7b1f4a0.tar.gz"
 
 LICENSE="GPL-3"
 SLOT="0"
@@ -21,7 +21,7 @@ DEPEND="
 RDEPEND="${DEPEND}"
 BDEPEND="dev-util/cmake"
 
-S="${WORKDIR}/Youda008-DoomRunner-7462b33"
+S="${WORKDIR}/Youda008-DoomRunner-7b1f4a0"
 
 
 src_prepare() {
