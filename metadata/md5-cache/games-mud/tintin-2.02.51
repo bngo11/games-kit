@@ -7,5 +7,5 @@ KEYWORDS=*
 LICENSE=GPL-3+
 RDEPEND=dev-libs/libpcre net-libs/gnutls sys-libs/readline:0 sys-libs/zlib
 SLOT=0
-SRC_URI=https://github.com/scandum/tintin/tarball/9d29659501f09c40a2929cd5292b8959b205abd1 -> tintin-2.02.42-9d29659.tar.gz
-_md5_=a5ba0a65a866ede8a48b883e6bc31acb
+SRC_URI=https://github.com/scandum/tintin/tarball/834bcfa80a2cba3b41087d19dbc9e5fb78ab51bf -> tintin-2.02.51-834bcfa.tar.gz
+_md5_=6df1276c1e505a1a28bd07bf67d93886

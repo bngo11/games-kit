@@ -8,7 +8,7 @@ HOMEPAGE="https://www.scummvm.org/"
 
 # Download URI if the github tarball is broken.
 # SRC_URI="https://downloads.scummvm.org/frs/scummvm/${PV}/${P}.tar.xz"
-SRC_URI="https://github.com/scummvm/scummvm/tarball/509833d62bd3f766f1d44114ab652956339a4d8e -> scummvm-2.9.0-509833d.tar.gz"
+SRC_URI="https://github.com/scummvm/scummvm/tarball/4f4258679fd50dac40ed86ad241ab295bb9ebfa6 -> scummvm-2.9.1-4f42586.tar.gz"
 
 LICENSE="GPL-2+ LGPL-2.1 BSD GPL-3-with-font-exception"
 SLOT="0"
