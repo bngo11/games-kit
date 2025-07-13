@@ -7,7 +7,7 @@ inherit cmake
 
 DESCRIPTION="🧙‍♂️ MMapper is a graphical MUD client for the game MUME (Multi-Users in Middle-earth)"
 HOMEPAGE="https://mume.github.io/MMapper/"
-SRC_URI="https://github.com/MUME/MMapper/tarball/27827d13c4df588356a8e409e21132540a0e16ab -> MMapper-25.06.2-27827d1.tar.gz"
+SRC_URI="https://github.com/MUME/MMapper/tarball/db3bdccb338ccf3b048867ea7b50fee3896611cb -> MMapper-25.07.0-db3bdcc.tar.gz"
 
 LICENSE="GPL-2.0"
 SLOT="0"
@@ -23,7 +23,7 @@ BDEPEND=""
 # necessary for downloading the map and build dependencies
 RESTRICT="network-sandbox"
 
-S="${WORKDIR}/MUME-MMapper-27827d1"
+S="${WORKDIR}/MUME-MMapper-db3bdcc"
 
 src_prepare() {
 	cmake_src_prepare
