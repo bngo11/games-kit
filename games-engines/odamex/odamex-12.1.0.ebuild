@@ -7,7 +7,7 @@ inherit cmake desktop gnome2-utils readme.gentoo-r1 wxwidgets
 
 DESCRIPTION="Online multiplayer, free software engine for Doom and Doom II"
 HOMEPAGE="https://odamex.net/"
-SRC_URI="https://github.com/odamex/odamex/releases/download/12.0.0/odamex-src-12.0.0.tar.xz -> odamex-src-12.0.0.tar.xz"
+SRC_URI="https://github.com/odamex/odamex/releases/download/12.1.0/odamex-src-12.1.0.tar.xz -> odamex-src-12.1.0.tar.xz"
 
 LICENSE="GPL-2"
 SLOT="0"
