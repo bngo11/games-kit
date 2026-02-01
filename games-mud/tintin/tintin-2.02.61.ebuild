@@ -5,7 +5,7 @@ EAPI=7
 
 DESCRIPTION="(T)he k(I)cki(N) (T)ickin d(I)kumud clie(N)t"
 HOMEPAGE="https://tintin.mudhalla.net"
-SRC_URI="https://github.com/scandum/tintin/tarball/257c2faf7a32b8e84a48a17fcb4bbed0d3bddcc1 -> tintin-2.02.60-257c2fa.tar.gz"
+SRC_URI="https://github.com/scandum/tintin/tarball/010881e7689c5328096f0b63002b898104cd72f1 -> tintin-2.02.61-010881e.tar.gz"
 
 LICENSE="GPL-3+"
 SLOT="0"
@@ -19,7 +19,7 @@ DEPEND="
 RDEPEND=${DEPEND}
 
 #S=${WORKDIR}/tt/src
-S="${WORKDIR}/scandum-tintin-257c2fa/src"
+S="${WORKDIR}/scandum-tintin-010881e/src"
 
 src_install() {
 	dobin tt++
