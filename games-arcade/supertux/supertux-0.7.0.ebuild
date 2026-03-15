@@ -7,7 +7,7 @@ inherit cmake flag-o-matic
 
 DESCRIPTION="SuperTux source code"
 HOMEPAGE="https://supertux.org/"
-SRC_URI="https://github.com/SuperTux/supertux/releases/download/v0.6.3/SuperTux-v0.6.3-Source.tar.gz -> SuperTux-v0.6.3-Source.tar.gz"
+SRC_URI="https://github.com/SuperTux/supertux/releases/download/v0.7.0/SuperTux-v0.7.0-Source.tar.gz -> SuperTux-v0.7.0-Source.tar.gz"
 
 LICENSE="GPL-2+ GPL-3+ ZLIB MIT CC-BY-SA-2.0 CC-BY-SA-3.0"
 SLOT="0"
