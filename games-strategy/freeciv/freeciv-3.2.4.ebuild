@@ -10,7 +10,7 @@ MY_P="${PN}-${PV}"
 
 DESCRIPTION="Multiplayer strategy game (Civilization Clone)"
 HOMEPAGE="https://www.freeciv.org/"
-SRC_URI="https://files.freeciv.org/stable/freeciv-3.2.3.tar.xz -> freeciv-3.2.3.tar.xz
+SRC_URI="https://files.freeciv.org/stable/freeciv-3.2.4.tar.xz -> freeciv-3.2.4.tar.xz
 "
 KEYWORDS="*"
 
