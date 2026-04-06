@@ -8,7 +8,7 @@ inherit desktop python-any-r1 toolchain-funcs qmake-utils xdg-utils
 
 DESCRIPTION="MAME is a multi-purpose emulation framework. MAME’s purpose is to preserve decades of software history. MAME now documents a wide variety of (mostly vintage) computers, video game consoles and calculators, in addition to the arcade video games"
 HOMEPAGE="https://github.com/mamedev/mame http://mamedev.org/"
-SRC_URI="https://github.com/mamedev/mame/tarball/cd565a6384933ced03eef8641dbf959f04ab225a -> mame-0286-cd565a6.tar.gz"
+SRC_URI="https://github.com/mamedev/mame/tarball/bda3b2e57954ad14618fb24a0b2564b40bf7c8b0 -> mame-0287-bda3b2e.tar.gz"
 
 LICENSE="GPL-2+ BSD-2 MIT CC0-1.0"
 SLOT="0"
