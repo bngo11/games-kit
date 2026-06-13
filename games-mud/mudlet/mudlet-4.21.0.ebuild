@@ -6,7 +6,7 @@ inherit cmake git-r3
 
 DESCRIPTION="⚔️ A cross-platform, open source, and super fast MUD client with scripting in Lua"
 HOMEPAGE="https://www.mudlet.org https://github.com/Mudlet/Mudlet"
-SRC_URI="https://github.com/Mudlet/Mudlet/tarball/895cdd7f24588625a2bb5e36eb544dd3ae095402 -> Mudlet-4.20.1-895cdd7.tar.gz"
+SRC_URI="https://github.com/Mudlet/Mudlet/tarball/192f7ed0e841d9633ef243cd478a5e860813bf36 -> Mudlet-4.21.0-192f7ed.tar.gz"
 
 LICENSE="GPL-2.0"
 SLOT="0"
